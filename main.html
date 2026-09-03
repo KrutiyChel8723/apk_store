@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon"
+        href="https://i.postimg.cc/BnBqSjr8/Chat-GPT-Image-14-serp-2026-r-17-45-59.png"
+        type="image/x-icon">
+
+    <title>APK Games</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f7f7f7;
+            color: #333;
+        }
+
+
+        /* HEADER */
+
+        header {
+            background: white;
+            border-bottom: 1px solid #ccc;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 12px 30px;
+        }
+
+        .logo img {
+            height: 55px;
+            display: block;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+
+            margin-left: 28px;
+
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #2bb8a6;
+        }
+
+
+        /* MAIN */
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+
+            margin: 30px auto;
+        }
+
+
+        /* SEARCH */
+
+        .search-box {
+            background: white;
+            border: 1px solid #ddd;
+
+            padding: 30px;
+
+            margin-bottom: 20px;
+        }
+
+        .search-box h1 {
+            font-size: 30px;
+            font-weight: 400;
+
+            margin-bottom: 8px;
+        }
+
+        .search-box p {
+            color: #777;
+            font-size: 15px;
+
+            margin-bottom: 20px;
+        }
+
+        .search {
+            display: flex;
+        }
+
+        .search input {
+            width: 100%;
+
+            padding: 13px;
+
+            border: 1px solid #ccc;
+
+            font-size: 15px;
+            outline: none;
+        }
+
+        .search input:focus {
+            border-color: #2bb8a6;
+        }
+
+        .search button {
+            background: #2bb8a6;
+            color: white;
+
+            border: none;
+
+            padding: 0 25px;
+
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .search button:hover {
+            background: #1b9d8d;
+        }
+
+
+        /* CATEGORIES */
+
+        .categories {
+            background: white;
+            border: 1px solid #ddd;
+
+            padding: 17px 20px;
+
+            margin-bottom: 30px;
+        }
+
+        .categories a {
+            color: #4b8bd8;
+            text-decoration: none;
+
+            font-size: 14px;
+
+            margin-right: 25px;
+        }
+
+        .categories a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* FILTERS */
+
+        .filters {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .filter-btn {
+            background: white;
+            color: #4b8bd8;
+            border: 1px solid #ccc;
+            padding: 8px 14px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #2bb8a6;
+            color: white;
+            border-color: #2bb8a6;
+        }
+
+        #ratingSort {
+            border: 1px solid #ccc;
+            padding: 8px 10px;
+            background: white;
+            color: #333;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        /* TITLE */
+
+        h2 {
+            font-size: 25px;
+            font-weight: 400;
+
+            margin-bottom: 18px;
+        }
+
+
+        /* GAMES */
+
+        .games {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 15px;
+        }
+
+
+        /* GAME CARD */
+
+        .game {
+            background: white;
+
+            border: 1px solid #ddd;
+
+            padding: 18px;
+        }
+
+        .game-top {
+            display: flex;
+
+            gap: 15px;
+        }
+
+        .game img {
+            width: 70px;
+            height: 70px;
+
+            object-fit: cover;
+        }
+
+        .game-info h3 {
+            font-size: 18px;
+            font-weight: 400;
+
+            margin-bottom: 6px;
+        }
+
+        .game-info p {
+            color: #777;
+
+            font-size: 13px;
+
+            margin-bottom: 6px;
+        }
+
+        .rating {
+            color: #ff9800;
+
+            font-size: 15px;
+        }
+
+        .rating span {
+            color: #777;
+
+            font-size: 12px;
+
+            margin-left: 5px;
+        }
+
+        .game-description {
+            color: #555;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+
+            margin-top: 15px;
+        }
+
+
+        /* BUTTON */
+
+        .download-btn {
+            display: block;
+
+            background: #2bb8a6;
+            color: white;
+
+            text-align: center;
+            text-decoration: none;
+
+            padding: 10px;
+
+            margin-top: 15px;
+
+            font-size: 14px;
+        }
+
+        .download-btn:hover {
+            background: #1b9d8d;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            background: white;
+
+            border-top: 1px solid #ccc;
+
+            margin-top: 50px;
+
+            padding: 25px;
+
+            text-align: center;
+
+            color: #777;
+
+            font-size: 13px;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            .games {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+
+        @media (max-width: 550px) {
+
+            .filters {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .filter-group {
+                width: 100%;
+            }
+
+            .filter-btn {
+                flex: 1;
+            }
+
+            #ratingSort {
+                width: 100%;
+            }
+
+            header {
+                padding: 12px 18px;
+            }
+
+            .logo img {
+                height: 45px;
+            }
+
+            nav a {
+                margin-left: 12px;
+            }
+
+            .container {
+                width: 94%;
+            }
+
+            .search {
+                flex-direction: column;
+            }
+
+            .search button {
+                padding: 12px;
+                margin-top: 8px;
+            }
+
+            .games {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+
+        <img
+            src="https://i.postimg.cc/BnBqSjr8/Chat-GPT-Image-14-serp-2026-r-17-45-59.png"
+            alt="APK Games">
+
+    </div>
+
+
+    <nav>
+
+        <a href="main.html">APPS</a>
+
+        <a href="#">GAMES</a>
+
+    </nav>
+
+</header>
+
+
+
+<main class="container">
+
+
+    <!-- SEARCH -->
+
+    <section class="search-box">
+
+        <h1>APK Games</h1>
+
+        <p>
+            Android games and applications
+        </p>
+
+
+        <div class="search">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search...">
+
+            <button onclick="searchGames()">
+                Search
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- FILTERS -->
+
+
+        <!-- FILTERS -->
+        <div class="filters">
+            <div class="filter-group">
+                <button class="filter-btn active" onclick="setCategory('all', this)">ALL</button>
+                <button class="filter-btn" onclick="setCategory('apps', this)">APPS</button>
+                <button class="filter-btn" onclick="setCategory('games', this)">GAMES</button>
+            </div>
+            <select id="ratingSort" onchange="sortGames()">
+                <option value="default">Rating: Default</option>
+                <option value="high">Rating: High to Low</option>
+                <option value="low">Rating: Low to High</option>
+            </select>
+        </div>
+
+    <!-- GAMES -->
+
+    <h2 id="sectionTitle">Popular Games</h2>
+
+
+    <section class="games" id="games">
+
+
+        <!-- PLANTS VS ZOMBIES -->
+
+        <article class="game" data-category="games" data-rating="4.3">
+
+            <div class="game-top">
+
+                <img
+                    src="https://img.utdstc.com/icon/c59/e49/c59e49e56462c5cb6948efd89993d18023639b3f958c19a15bf310a202e44345:600"
+                    alt="Plants vs Zombies">
+
+
+                <div class="game-info">
+
+                    <h3>
+                        Plants vs. Zombies
+                    </h3>
+
+                    <p>
+                        ELECTRONIC ARTS
+                    </p>
+
+                    <div class="rating">
+                        ★★★★★
+                        <span>4.3/5</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="game-description">
+                Protect your home from waves of zombies
+                using powerful plants.
+            </p>
+
+
+            <a
+                href="pvz.html"
+                class="download-btn">
+
+                View Game
+
+            </a>
+
+        </article>
+
+
+
+        <!-- SUPREME DUELIST -->
+
+        <article class="game" data-category="games" data-rating="4.4">
+
+            <div class="game-top">
+
+                <img
+                    src="https://i.postimg.cc/GhXpptwD/image.png"
+                    alt="Supreme Duelist">
+
+
+                <div class="game-info">
+
+                    <h3>
+                        Supreme Duelist
+                    </h3>
+
+                    <p>
+                        Neron's Brother
+                    </p>
+
+                    <div class="rating">
+                        ★★★★★
+                        <span>4.4/5</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+                    
+
+            <p class="game-description">
+                Fight against opponents in simple
+                and chaotic stick battles.
+            </p>
+
+
+            <a
+                href="supreme_duelist.html"
+                class="download-btn">
+
+                View Game
+
+            </a>
+
+        </article>
+        <article class="game" data-category="games" data-rating="4.3">
+
+            <div class="game-top">
+
+                <img
+                    src="https://i.postimg.cc/nrcGvrdL/image.png"
+                    alt="Talking Tom">
+
+
+                <div class="game-info">
+
+                    <h3>
+                        Talking Tom
+                    </h3>
+
+                    <p>
+                        Outfit7 Limited
+                    </p>
+
+                    <div class="rating">
+                        ★★★★★
+                        <span>4.3/5</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="game-description">
+                Play as Talking Tom and interact with your virtual pet in fun and engaging activities.
+            </p>
+
+
+            <a
+                href="talking_tom.html"
+                class="download-btn">
+
+                View Game
+
+            </a>
+
+        </article>
+
+
+        <article class="game" data-category="apps" data-rating="4.3">
+
+            <div class="game-top">
+
+                <img
+                    src="https://play-lh.googleusercontent.com/M78HyakHaxKrjoeqYx41E9DXfVYYtx67nvc7Ks4G4zFQeaAJdGCi8gzzGSrHIwlrmnJS6zD9S4fAXqdEwfuHQAQ=w480-h960-rw"
+                    alt="CapCut">
+
+
+                <div class="game-info">
+
+                    <h3>
+                        CapCut - Video Editor
+                    </h3>
+
+                    <p>
+                        Bytedance Pte. Ltd.
+                    </p>
+
+                    <div class="rating">
+                        ★★★★★
+                        <span>4.3/5</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="game-description">
+                Edit videos with ease using CapCut's powerful editing tools and effects.
+            </p>
+
+
+            <a
+                href="capcut.html"
+                class="download-btn">
+
+                View Game
+
+            </a>
+
+        </article>
+
+                <article class="game" data-category="apps" data-rating="4.3">
+
+            <div class="game-top">
+
+                <img
+                    src="https://www.apkmirror.com/wp-content/themes/APKMirror/ap_resize/ap_resize.php?src=https%3A%2F%2Fdownloadr2.apkmirror.com%2Fwp-content%2Fuploads%2F2022%2F10%2F91%2F634da6e3c5037.png&w=192&h=192&q=100"
+                    class="icon"
+                    alt="Tik Tok">
+
+
+                <div class="game-info">
+
+                    <h3>
+                        Tik Tok
+                    </h3>
+
+                    <p>
+                        TikTok Pte. Ltd.
+                    </p>
+
+                    <div class="rating">
+                        ★★★★★
+                        <span>4.3/5</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="game-description">
+                Create and share short videos with TikTok's powerful editing tools and effects.
+            </p>
+
+
+            <a
+                href="tik_tok.html"
+                class="download-btn">
+
+                View Game
+
+            </a>
+
+        </article>
+
+        <article class="game" data-category="games" data-rating="4.3">
+
+            <div class="game-top">
+
+                <img
+                    src="https://www.apkmirror.com/wp-content/themes/APKMirror/ap_resize/ap_resize.php?src=https%3A%2F%2Fdownloadr2.apkmirror.com%2Fwp-content%2Fuploads%2F2023%2F10%2F85%2F6523deb7ee32f_com.block.juggle.png&w=192&h=192&q=100"
+                    class="icon"
+                    alt="Block Blast">
+
+
+                <div class="game-info">
+
+                    <h3>
+                        Block Blast
+                    </h3>
+
+                    <p>
+                        HungryStudio
+                    </p>
+
+                    <div class="rating">
+                        ★★★★★
+                        <span>4.3/5</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="game-description">
+                Block Blast is a fun puzzle game where you place blocks to clear rows and score points.
+            </p>
+
+
+            <a
+                href="bb.html"
+                class="download-btn">
+
+                View Game
+
+            </a>
+
+        </article>
+
+
+
+
+    </section>
+
+</main>
+
+
+
+<footer>
+
+    © 2026 APK Games
+
+</footer>
+
+
+
+
+<script>
+    let currentCategory = "all";
+
+    function updateGames() {
+        const input = document.getElementById("searchInput").value.toLowerCase().trim();
+
+        document.querySelectorAll(".game").forEach(function(game) {
+            const matchesSearch = game.innerText.toLowerCase().includes(input);
+            const matchesCategory =
+                currentCategory === "all" || game.dataset.category === currentCategory;
+
+            game.style.display = matchesSearch && matchesCategory ? "" : "none";
+        });
+    }
+
+    function searchGames() {
+        updateGames();
+    }
+
+    function setCategory(category, button) {
+        currentCategory = category;
+
+        document.querySelectorAll(".filter-btn").forEach(function(btn) {
+            btn.classList.remove("active");
+        });
+        button.classList.add("active");
+
+        const title = document.getElementById("sectionTitle");
+
+        if (category === "apps") {
+            title.textContent = "Applications";
+        } else if (category === "games") {
+            title.textContent = "Games";
+        } else {
+            title.textContent = "Popular Games";
+        }
+
+        updateGames();
+    }
+
+    function sortGames() {
+        const sort = document.getElementById("ratingSort").value;
+        const container = document.getElementById("games");
+        const cards = Array.from(container.querySelectorAll(".game"));
+
+        cards.sort(function(a, b) {
+            if (sort === "high") {
+                return Number(b.dataset.rating) - Number(a.dataset.rating);
+            }
+            if (sort === "low") {
+                return Number(a.dataset.rating) - Number(b.dataset.rating);
+            }
+            return Number(a.dataset.order) - Number(b.dataset.order);
+        });
+
+        cards.forEach(function(card) {
+            container.appendChild(card);
+        });
+
+        updateGames();
+    }
+
+    document.querySelectorAll(".game").forEach(function(game, index) {
+        game.dataset.order = index;
+    });
+
+    document.getElementById("searchInput").addEventListener("keyup", function(event) {
+        updateGames();
+        if (event.key === "Enter") {
+            searchGames();
+        }
+    });
+</script>
+
+
+</body>
+
+</html>
